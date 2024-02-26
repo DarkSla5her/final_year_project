@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sip N Savour | Sign Up </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../css/signup.css"/>  -->
+    <style>
+
+      body{
+         background-color: rgb(132, 164, 244);
+     }
+     
+     form{   
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+         padding-top: 10%;
+         
+     }
+     a{
+         color: white;
+     }
+     a:hover {
+         background-color: rgb(30, 114, 240);
+         box-shadow: 1px 5px 7px 1px rgba(0,0,0,0.2);
+       }
+     
+     </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <h class="navbar-brand" href="#">Sip N Savour</h>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Login</a>
+              <a class="nav-link" href="#">Account</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+    <form onsubmit="event.preventDefault();">
+        <div class="box">
+         <div class="container">
+           <div class="top-header">
+             <h1>Sign Up</h1>
+           </div>
+           <div class="mb-3">
+             <div class="input-field">
+               <input id="fname" type="text" class="form-control" placeholder="Enter your first name" required><br>
+               <i class="bx bx-user"></i>
+             </div>
+           
+           <div class="input-field">
+            <input id="lname" type="text" class="form-control" placeholder="Enter your surname" required><br>
+            <i class="bx bx-user"></i>
+          </div>
+
+           <div class="input-field">
+             <input id="email" type="email" class="form-control" placeholder="Enter your email" required><br>
+             <i class="bx bx-lock-alt"></i>
+           </div>
+           <div class="input-field">
+            <input id="pass1" type="password" class="form-control" placeholder="Create a password" required><br>
+            <i class="bx bx-user"></i>
+          </div>
+          <div class="input-field">
+            <input id="pass2" type="password" class="form-control" placeholder="Re-enter password" required><br>
+            <i class="bx bx-user"></i>
+          </div>
+           <div class="input-field">
+             <button id="submitsignup" type="submit" class="btn btn-primary">Sign Up</button>
+           </div>
+         </div>
+        </div>
+       </form>
+    <img src="food.jpeg" >
+    
+</body>
+</html>
+
+<script type="module" src="../config/loginandsignup.js"> </script>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sip N Savour | Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/signup.css"/> 
+</head>
+<body>
+    <div class="banner">
+        <div class="banner_content">
+           <a href="login.html"> Login &nbsp; &nbsp;|</a> 
+           <a href="signup.html"> &nbsp;&nbsp; Sign Up &nbsp; &nbsp;|</a> 
+           <a href=""> &nbsp;&nbsp; Account</a> 
+        </div>
+    </div>
+
+   
+<form>
+    <div class="form_details">
+        <div class="input-field">
+            <header>Sign Up</header><br>
+            <label for="fname">First Name:</label> <br>
+            <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your first name" required><br>
+        </div>
+
+        <div class="input-field">
+            <label for="lname">Surname:</label> <br>
+            <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter your surname" required><br>
+        </div>
+
+        <div class="input-field">
+            <label for="email">Email Address:</label> <br>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required><br>
+        </div>
+
+        <div class="input-field">
+            <label for="pass1">Password:</label> <br>
+            <input type="password" class="form-control" id="pass1" name="pass1" placeholder="Create a password" required><br>
+        </div>
+
+        <div class="input-field">
+            <label for="pass2">Confirm password:</label> <br>
+            <input type="password" class="form-control" id="pass2" name="pass2" placeholder="Confirm password" required><br>
+        </div>
+
+        <div class="input-field">
+            <button id="submitsignup" type="submit" class="btn btn-primary">Sign Up</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>
+
+<script type="module" src="../config/loginandsignup.js"> </script> -->

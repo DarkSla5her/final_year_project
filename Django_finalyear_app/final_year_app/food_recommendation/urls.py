@@ -4,6 +4,8 @@ from . import views
 urlpatterns = [
     # path('', views.index, name='index'),
     path('recommend/', views.food_recommendation, name='food_recommendation'),
-    #path('index', views.index, name='index'),
-    # Other URL patterns specific to this app
+    path('login/', views.login, name='login'),
+    path('signup/', views.signup, name='signup'),
+    path('homepage/', views.homepage, name='homepage'),
+    path('recommend_food/', views.recommend_food, name='recommend_food')
 ]
