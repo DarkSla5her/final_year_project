@@ -9,13 +9,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
+          <a class="nav-link" href="{% url 'homepage' %}">Home</a>
           <a class="nav-link" href="#">Account</a>
+          <a class="nav-link" href="#">Log Out</a>
         </div>
       </div>
     </div>
   </nav>
 
-<h1>Food Preference</h1>
+<h2>Let us recommend you something to eat...</h2>
 
     <form method="post">
         {% csrf_token %}

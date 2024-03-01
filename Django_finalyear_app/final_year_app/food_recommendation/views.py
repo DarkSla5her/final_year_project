@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import pandas as pd
 from scipy.sparse import csr_matrix
@@ -6,24 +6,111 @@ from sklearn.neighbors import NearestNeighbors
 import numpy as np
 from django.conf import settings
 import os
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.views.decorators.csrf import csrf_exempt
+# from django.contrib.auth import authenticate, login as auth_login
+from .forms import SignUpForm
+from django.contrib.auth import login, logout, authenticate
+# from .models import User # Import your custom user model
+# from .forms import SignUpForm # Import your custom user form
 
 
-
-def login_view(request):
+def register(request):
+    form=  SignUpForm()
     if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
+        form= SignUpForm()
         if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                auth_login(request, user)
-                return redirect('http://127.0.0.1:8000/')  
+            form.save()
+
+    context={'form':form}
+
+    return render(request, 'food_recommendation/register.html')
+
+
+
+
+
+# def signup(request):
+#     if request.method == 'POST':
+#         form = SignUpForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             # Redirect to success page or any other page
+#             return redirect('success')
+#     else:
+#         form = SignUpForm()
+#     return render(request, 'food_recommendation/signup.html', {'form': form})
+
+
+# @csrf_exempt
+# def signup(request):
+#     form= SignUpForm()
+#     if request.method == "POST":
+#         form = SignUpForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#     else:
+#         form = SignUpForm()
+#         return render(request, 'food_recommendation/signup.html', {'form': form})
+
+
+
+    # redirect_to = request.POST.get('next', '')  # Get the value of 'next' from POST data
+    # if request.method == "POST":
+    #     form = SignUpForm(request.POST)
+    #     if form.is_valid():
+    #         user = form.save()
+    #         login(request, user)
+    #         if redirect_to:  # Check if a redirection URL is provided
+    #             return redirect(redirect_to)  # Redirect to the provided URL
+    #         else:
+    #             return redirect("homepage")  # Default redirection to homepage
+    # else:
+    #     form = SignUpForm()
+    # return render(request, 'food_recommendation/signup.html', {'form': form})
+
+
+@csrf_exempt
+def login_view(request):
+    if request.method == "POST":
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect("home")
     else:
         form = AuthenticationForm()
-    return render(request, 'food_recommendation/login.html', {'form': form})
+    return render(request, "login.html", {"form": form})
+
+def logout_view(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect("home")
+
+
+# def signup_view(request):
+#     if request.method == 'POST':
+#         form = CustomUserCreationForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             user = form.save()
+#             return redirect('login')
+#     else:
+#         form = CustomUserCreationForm()
+#     return render(request, 'api/spa/signup.html', {'form': form})
+
+# def login_view(request):
+#     if request.method == 'POST':
+#         form = AuthenticationForm(request, data=request.POST)
+#         if form.is_valid():
+#             username = form.cleaned_data.get('username')
+#             password = form.cleaned_data.get('password')
+#             user = authenticate(username=username, password=password)
+#             if user is not None:
+#                 auth_login(request, user)
+#                 return redirect('http://127.0.0.1:8000/')  
+#     else:
+#         form = AuthenticationForm()
+#     return render(request, 'food_recommendation/login.html', {'form': form})
 
 
 def login(request):
@@ -34,6 +121,9 @@ def signup(request):
 
 def homepage(request):
      return render(request, 'food_recommendation/homepage.html')
+
+def recommend_drink(request):
+     return render(request, 'food_recommendation/recommend_drink.html')
 
 def recommend_food(request):
     if request.method == 'POST':

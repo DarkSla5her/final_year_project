@@ -1,0 +1,14 @@
+<h1>signup</h1>
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.username.label}}
+    {{form.username}}
+
+    {{form.email.label}}
+    {{form.username}}
+
+
+
+    <input type="submit" name="Create user">
+
+  </form>
