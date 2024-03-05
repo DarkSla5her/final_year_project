@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sip N Savour | Sign Up </title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="../css/signup.css"/>  -->
     <style>
 
       body{
@@ -35,8 +34,8 @@
      img{
       position: relative;
       width: 100%;
-      height: 320px;
-      bottom: 380px;
+      height: 370px;
+      bottom: 440px;
       z-index: -1;
       opacity: 0.8;
      }
@@ -61,34 +60,53 @@
           </div>
         </div>
       </nav>
+
+      {% if messages %}
+      <div class="container mt-3">
+          {% for message in messages %}
+              <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          {% endfor %}
+      </div>
+      {% endif %}
     
     <form method="POST" action="">
+      {% csrf_token %}
         <div class="box">
          <div class="container">
            <div class="top-header">
              <h1>Sign Up</h1>
            </div>
            <div class="mb-3">
+            <div class="input-field">
+              <input name="username" id="username" type="text" class="form-control" placeholder="Enter your username" required><br>
+              <i class="bx bx-user"></i>
+          </div>
+          
              <div class="input-field">
-               <input id="first_name" type="text" class="form-control" placeholder="Enter your first name" required><br>
+               <input name="first_name" id="first_name" type="text" class="form-control" placeholder="Enter your first name" required><br>
                <i class="bx bx-user"></i>
              </div>
           
            <div class="input-field">
-            <input id="last_name" type="text" class="form-control" placeholder="Enter your surname" required><br>
+            <input name="last_name" id="last_name" type="text" class="form-control" placeholder="Enter your surname" required><br>
             <i class="bx bx-user"></i>
           </div>
 
            <div class="input-field">
-             <input id="email" type="email" class="form-control" placeholder="Enter your email" required><br>
+             <input name="email" id="email" type="email" class="form-control" placeholder="Enter your email" required><br>
              <i class="bx bx-lock-alt"></i>
            </div>
            <div class="input-field">
-            <input id="pass1" type="password" class="form-control" placeholder="Create a password" required><br>
+            <input name="password1" id="pass1" type="password" class="form-control" placeholder="Create a password" required><br>
             <i class="bx bx-user"></i>
           </div>
           <div class="input-field">
-            <input id="pass2" type="password" class="form-control" placeholder="Re-enter password" required><br>
+            <input name="password2" id="pass2" type="password" class="form-control" placeholder="Re-enter password" required><br>
             <i class="bx bx-user"></i>
           </div>
            <div class="input-field">
@@ -101,6 +119,5 @@
 </body>
 </html>
 
-<!-- <script type="module" src="../config/loginandsignup.js"> </script> -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

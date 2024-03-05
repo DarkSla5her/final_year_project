@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sip N Savour | Account</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <h class="navbar-brand">Sip N Savour</h>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'homepage' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'recommend_drink' %}">Recommend me a Drink</a> 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'recommend_food' %}">Recommend me Food</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logout-link">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="details">
+        <div class="container mt-5">
+            <h1 class="mb-4">Hi,{{ user.first_name }}. </h1>
+            <h4>These are your account details.</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="rounded border p-2 mb-2"><strong>Username:</strong> <span class="text-muted">{{ user.username }}</span></p>
+                    <p class="rounded border p-2 mb-2"><strong>Name:</strong> <span class="text-muted">{{ user.first_name }}</span></p>
+                    <p class="rounded border p-2 mb-2"><strong>Surname:</strong> <span class="text-muted">{{ user.last_name }}</span></p>
+                    <p class="rounded border p-2 mb-2"><strong>Email:</strong> <span class="text-muted">{{ user.email }}</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+</body>
+<style>
+    body{
+        background-color: rgb(96, 127, 241);
+    }
+    p{
+         background-color: rgb(249, 237, 237);
+    }
+
+    h1,h4{
+        color: white;
+    }
+
+    .details{
+        padding-left: 30%;
+        padding-top: 7%;
+    }
+</style>
