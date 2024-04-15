@@ -1,0 +1,261 @@
+﻿Food,Type_of_course,Cuisine,Allergies,Is_vegetarian,Meat
+Spaghetti Carbonara ,Mains,Italian,"Eggs, Cereals containing gluten, Milk",No,Pork
+Lasagna ,Mains,Italian,"Cereals containing gluten, Milk",No,"Beef, Pork"
+Risotto ai Funghi ,Mains,Italian,Milk,Yes,
+Osso Buco ,Mains,Italian,"Celery, Milk",No,Veal
+Pizza Margherita ,Mains,Italian,Milk,Yes,
+Ravioli ,Mains,Italian,Milk,No,"Beef, Pork"
+Polenta with Sausage and Mushrooms ,Mains,Italian,Milk,No,Pork
+Fettuccine Alfredo ,Mains,Italian,Milk,No,Chicken
+Caprese Salad ,Mains,Italian,"Milk, Sulphites",Yes,
+Cannelloni ,Mains,Italian,"Cereals containing gluten, Milk",No,"Beef, Pork"
+Arancini ,Mains,Italian,"Milk, Cereals containing gluten",No,"Beef, Pork"
+Orecchiette with Broccoli Rabe ,Mains,Italian,"Cereals containing gluten, Sulphites",No,Pork
+Gnocchi ,Mains,Italian,"Milk, Cereals containing gluten",No,"Beef, Pork"
+Saltimbocca alla Romana,Mains,Italian,Milk,No,Veal
+Panzanella ,Mains,Italian,"Cereals containing gluten, Sulphites",Yes,
+Pesto Pasta ,Mains,Italian,"Milk, Nuts",Yes,
+Minestrone Soup ,Mains,Italian,"Celery, Sulphites",Yes,
+Bruschetta ,Mains,Italian,Cereals containing gluten,Yes,
+Spaghetti Bolognese ,Mains,Italian,"Milk, Cereals containing gluten",No,Beef
+Cacio e Pepe,Mains,Italian,Milk,Yes,
+Eggplant Parmesan ,Mains,Italian,Milk,Yes,
+Farfalle with Tomato and Basil ,Mains,Italian,Cereals containing gluten,Yes,
+Pasta Primavera ,Mains,Italian,"Milk, Cereals containing gluten",Yes,
+Chicken Marsala ,Mains,Italian,Sulphites,No,Chicken
+Veal Piccata ,Mains,Italian,Milk,No,Veal
+Frittata ,Mains,Italian,"Eggs, Milk",Yes,
+Insalata di Mare ,Mains,Italian,Fish,No,Fish
+Calzone ,Mains,Italian,"Cereals containing gluten, Milk",No,Pork
+Saltimbocca alla Sorrentina ,Mains,Italian,Milk,No,Veal
+Calamari Fritti (Fried Calamari) ,Starter,Italian,"Cereals containing gluten, Molluscs",No,Fish
+Cozze alla Marinara (Mussels Marinara),Starter,Italian,Molluscs,No,Fish
+Insalata Caprese (Caprese Salad) ,Starter,Italian,Milk,Yes,
+Polenta con Funghi ,Starter,Italian,Milk,Yes,
+Affettati Misti (Mixed Cold Cuts) ,Starter,Italian,"Sulphites, Milk",No,Pork
+Olive Marinate (Marinated Olives) ,Starter,Italian,,Yes,
+Sformato di Verdure (Vegetable Flan),Starter,Italian,"Milk, Eggs",Yes,
+Gnocchi di Patate (Potato Gnocchi) ,Starter,Italian,"Cereals containing gluten, Milk",Yes,
+Insalata di Rucola e Parmigiano ,Starter,Italian,Milk,Yes,
+Mozzarella in Carrozza  ,Starter,Italian,"Cereals containing gluten, Milk",Yes,
+Zuppa di Cozze (Mussel Soup) ,Starter,Italian,Molluscs,No,Fish
+Bresaola e Rucola ,Starter,Italian,"Sulphites, Milk, Cereals containing gluten",No,Beef
+Polpo alla Griglia ,Starter,Italian,Molluscs,No,Fish
+Insalata di Finocchio ,Starter,Italian,,Yes,
+Crostini ai Funghi ,Starter,Italian,"Cereals containing gluten, Sulphites",Yes,
+Insalata di Carciofi (Artichoke Salad),Starter,Italian,"Milk, Sulphites",Yes,
+Patate Ripiene (Stuffed Potatoes) ,Starter,Italian,"Milk, Sulphites",Yes,
+Insalata di Polpo (Octopus Salad) ,Starter,Italian,Molluscs,No,Fish
+Melanzane alla Parmigiana (Eggplant Parmesan) ,Starter,Italian,"Milk, Cereals containing gluten",Yes,
+Sardine in Saor (Sweet and Sour Sardines) ,Starter,Italian,"Fish, Sulphites",No,Fish
+Crostini con Pate di Fegatini ,Starter,Italian,"Cereals containing gluten, Sulphites",,
+Tiramisu,Dessert,Italian,"Milk, Eggs, Cereals containing gluten",,
+Cannoli,Dessert,Italian,"Milk, Cereals containing gluten",,
+Gelato (Italian ice cream),Dessert,Italian,"Dairy, Eggs",,
+Panna Cotta,Dessert,Italian,Milk,,
+Affogato,Dessert,Italian,Milk,,
+Torta della Nonna (Grandma's cake),Dessert,Italian,"Eggs, Cereals containing gluten",,
+Zeppole,Dessert,Italian,"Milk, Eggs",,
+Amaretti Cookies,Dessert,Italian,Nuts,,
+Sfogliatelle,Dessert,Italian,"Milk, Cereals containing gluten",,
+Zabaglione,Dessert,Italian,Eggs,,
+Biscotti,Dessert,Italian,"Cereals containing gluten, Nuts",,
+Ricotta Cheesecake,Dessert,Italian,"Milk, Cereals containing gluten",,
+Limoncello Sorbet,Dessert,Italian,,,
+Panettone,Dessert,Italian,"Cereals containing gluten, Nuts",,
+Cassata Siciliana,Dessert,Italian,"Milk, Cereals containing gluten",,
+Crostata (Italian tart),Dessert,Italian,"Milk, Cereals containing gluten",,
+Struffoli,Dessert,Italian,"Milk, Eggs",,
+Bomboloni (Italian doughnuts),Dessert,Italian,"Milk, Eggs",,
+Torta Caprese (Chocolate and almond cake),Dessert,Italian,"Nuts, Eggs",,
+Budino al Cioccolato (Chocolate pudding),Dessert,Italian,"Milk, Eggs",,
+Sweet and Sour Chicken ,Mains,Chinese,"Cereals containing gluten, Sulphites",No,Chicken
+Kung Pao Chicken ,Mains,Chinese,"Peanuts, Soya",No,Chicken
+Beef Chow Mein ,Mains,Chinese,"Cereals containing gluten, Soya",No,Chicken
+Vegetable Spring Rolls ,Mains,Chinese,"Cereals containing gluten, Soya",Yes,
+Mapo Tofu,Mains,Chinese,"Cereals containing gluten, Soya",Yes,
+Peking Duck ,Mains,Chinese,"Cereals containing gluten, Sesame Seeds",No,Duck
+Hot and Sour Soup ,Mains,Chinese,"Egg, Soya",No,Pork
+Gong Bao Shrimp ,Mains,Chinese,"Peanuts, Soya",No,Fish
+General Tso's Tofu ,Mains,Chinese,"Cereals containing gluten, Soya",Yes,
+Ma Jiang Mian (Sesame Noodles),Mains,Chinese,"Cereals containing gluten, Sesame Seeds",No,Pork
+Dim Sum Platter,Mains,Chinese,"Cereals containing gluten, Soya",Yes,
+Salt and Pepper Squid ,Mains,Chinese,"Cereals containing gluten, Celery",No,Fish
+Beef and Broccoli ,Mains,Chinese,"Cereals containing gluten, Soya",No,Beef
+Sichuan Eggplant ,Mains,Chinese,"Cereals containing gluten, Soya",Yes,
+Shrimp Fried Rice ,Mains,Chinese,"Soya, Eggs",No,Fish
+Hot and Sour Soup ,Starter,Chinese,"Soya, Eggs",No,Pork
+Spring Rolls ,Starter,Chinese,"Cereals containing gluten, Soya",Yes,
+Steamed Dumplings ,Starter,Chinese,"Cereals containing gluten, Soya",Yes,
+Prawn Crackers ,Starter,Chinese,"Crustaceans, Cereals, containing gluten",No,Fish
+Wonton Soup ,Starter,Chinese,"Cereals containing gluten, Soya",Yes,
+Scallion Pancakes ,Starter,Chinese,"Cereals containing gluten, Soya",Yes,
+Chicken Satay Skewers ,Starter,Chinese,"Peanuts, Soya",No,Chicken
+Crab Rangoon ,Starter,Chinese,"Cereals containing gluten, Milk",No,Fish
+Seaweed Salad ,Starter,Chinese,"Soya, Sesame seeds",Yes,
+Pork Baozi (Steamed Buns) ,Starter,Chinese,"Cereals containing gluten, Soya",No,Pork
+Egg Custard Tart ,Dessert,Chinese,"Milk, Eggs",,
+Red Bean Paste Buns ,Dessert,Chinese,"Cereals containing gluten, Soya",,
+Sesame Balls ,Dessert,Chinese,"Cereals containing gluten, Sesame Seeds",,
+Mango Pudding ,Dessert,Chinese,"Milk, Eggs",,
+Coconut Jelly ,Dessert,Chinese,Sulphites,,
+Almond Cookies ,Dessert,Chinese,"Nuts, Cereals containing gluten",,
+Taro Cake ,Dessert,Chinese,"Cereals containing gluten, Soya",,
+Grass Jelly ,Dessert,Chinese,,,
+Sweet Rice Dumplings ,Dessert,Chinese,"Cereals containing gluten, Sesame seeds",,
+Tang Yuan (Glutinous Rice Balls) ,Dessert,Chinese,"Cereals containing gluten, Sesame seeds",,
+Butter Chicken ,Mains,Indian,"Milk, Mustard, Nuts",No,Chicken
+Palak Paneer ,Mains,Indian,"Milk, Mustard",Yes,
+Chicken Tikka Masala ,Mains,Indian,"Milk, Mustard, Nuts",No,Chicken
+Chana Masala ,Mains,Indian,Mustard,Yes,
+Rogan Josh ,Mains,Indian,"Milk, Mustard",No,Lamb
+Aloo Gobi ,Mains,Indian,Mustard,Yes,
+Dal Makhani ,Mains,Indian,Mustard,Yes,
+Chicken Biryani ,Mains,Indian,"Mustard, Nuts",No,Chicken
+Tandoori Chicken ,Mains,Indian,"Milk, Mustard",No,Chicken
+Saag Aloo ,Mains,Indian,"Milk, Mustard",Yes,
+Vegetable Korma ,Mains,Indian,"Milk, Mustard",Yes,
+Lamb Vindaloo ,Mains,Indian,"Milk, Mustard",No,Lamb
+Prawn Curry ,Mains,Indian,"Milk, Mustard",No,Fish
+Chicken Curry ,Mains,Indian,"Milk, Mustard",No,Chicken
+Paneer Tikka ,Mains,Indian,"Milk, Mustard",Yes,
+Fish Curry ,Mains,Indian,"Milk, Mustard",No,Fish
+Egg Curry ,Mains,Indian,"Milk, Mustard",Yes,
+Mushroom Masala ,Mains,Indian,Mustard,Yes,
+Baingan Bharta (Smoked Eggplant Curry) ,Mains,Indian,Mustard,Yes,
+Chicken Masala,Mains,Indian,"Milk, Mustard",No,Chicken
+Samosas ,Starter,Indian,"Cereals containing gluten, Mustard",No,"Beef, Chicken"
+Pakoras ,Starter,Indian,"Cereals containing gluten, Mustard",No,Chicken
+Aloo Tikki,Starter,Indian,Mustard,Yes,
+Paneer Tikka ,Starter,Indian,"Milk, Mustard",Yes,
+Chicken Tikka ,Starter,Indian,"Milk, Mustard",No,Chicken
+Vegetable Cutlets ,Starter,Indian,Mustard,Yes,
+Seekh Kebabs ,Starter,Indian,"Milk, Mustard",No,"Lamb, Beef"
+Chicken Pakoras ,Starter,Indian,"Cereals containing gluten, Mustard",No,Chicken
+Onion Bhaji ,Starter,Indian,"Cereals containing gluten, Mustard",Yes,
+Dahi Puri ,Starter,Indian,"Milk, Mustard",Yes,
+Tandoori Mushrooms ,Starter,Indian,"Milk, Mustard",Yes,
+Chicken 65 ,Starter,Indian,"Milk, Mustard",No,Chicken
+Chilli Paneer ,Starter,Indian,"Milk, Mustard",Yes,
+Fish Pakoras ,Starter,Indian,"Cereals containing gluten, Mustard",No,Fish
+Hara Bhara Kebab ,Starter,Indian,Cereals containing gluten,Yes,
+Chicken Malai Tikka ,Starter,Indian,Milk,No,Chicken
+Tandoori Shrimp ,Starter,Indian,Milk,No,Fish
+Tandoori Gobi ,Starter,Indian,Milk,Yes,
+Chicken Lollipops ,Starter,Indian,Cereals containing gluten,No,Chicken
+Papdi Chaat,Starter,Indian,Cereals containing gluten,Yes,
+Gulab Jamun ,Dessert,Indian,"Milk, Nuts",,
+Rasgulla ,Dessert,Indian,"Milk, Nuts",,
+Kheer ,Dessert,Indian,"Milk, Nuts",,
+Jalebi ,Dessert,Indian,Cereals containing gluten ,,
+Barfi ,Dessert,Indian,"Milk, Nuts",,
+Halwa ,Dessert,Indian,"Milk, Nuts",,
+Rasmalai ,Dessert,Indian,"Milk, Nuts",,
+Peda ,Dessert,Indian,"Milk, Nuts",,
+Sandesh ,Dessert,Indian,"Milk, Nuts",,
+Kulfi ,Dessert,Indian,"Milk, Nuts",,
+Ladoo ,Dessert,Indian,"Milk, Nuts",,
+Shrikhand ,Dessert,Indian,"Milk, Nuts",,
+Mysore Pak ,Dessert,Indian,"Milk, Nuts",,
+Payasam ,Dessert,Indian,"Milk, Nuts",,
+Malpua ,Dessert,Indian,"Milk, Nuts",,
+Gajar Ka Halwa (Carrot Halwa) ,Dessert,Indian,"Milk, Nuts",,
+Mithai ,Dessert,Indian,"Milk, Nuts",,
+Coconut Barfi ,Dessert,Indian,"Milk, Nuts",,
+Rabri ,Dessert,Indian,"Milk, Nuts",,
+Modak ,Dessert,Indian,"Milk, Nuts",,
+Coq au Vin ,Mains,French,"Sulphites, Celery",No,Chicken
+Beef Bourguignon,Mains,French,"Sulphites, Celery",No,Beef
+Ratatouille ,Mains,French,Sulphites,Yes,
+Cassoulet ,Mains,French,"Sulphites, Celery",No,Pork
+Bouillabaisse ,Mains,French,"Fish, Celery",No,Fish
+Confit de Canard,Mains,French,"Sulphites, Celery",No,Duck
+Beef Tartare ,Mains,French,"Egg, Mustard",No,Beef
+Escargot ,Mains,French,"Molluscs, Milk",No,Snail
+Quiche Lorraine,Mains,French,"Milk, Cereals containing gluten",No,Pork
+Blanquette de Veau ,Mains,French,"Milk, Celery",No,Veal
+Gratin Dauphinois ,Mains,French,"Milk, Celery",Yes,
+Lapin à la Moutarde ,Mains,French,"Mustard, Celery",No,Rabbit
+Cassoulet Toulousain ,Mains,French,"Sulphites, Celery",No,Chicken
+Beef Wellington ,Mains,French,"Cereals containing gluten, Sulphites",No,Beef
+Duck à l'Orange ,Mains,French,"Sulphites, Celery",No,Duck
+Sole Meunière ,Mains,French,"Fish, Milk",No,Fish
+Boeuf en Croûte ,Mains,French,"Cereals containing gluten, Sulphites",No,Beef
+Magret de Canard ,Mains,French,"Sulphites, Celery",No,Duck
+Choucroute Garnie ,Mains,French,"Sulphites, Celery",No,Pork
+Bouillabaisse Marseillaise ,Mains,French,"Fish, Sulphites",No,Fish
+Foie Gras ,Starter,French,"Milk, Sulphites",No,Duck
+Escargot,Starter,French,"Molluscs, Milk",No,Snail
+French Onion Soup ,Starter,French,"Milk, Cereals containing gluten",No,Beef
+Pâté de Campagne,Starter,French,"Sulphites, Milk",No,"Chicken, Beef"
+Salade Niçoise ,Starter,French,"Fish, Sulphites",No,Fish
+Quiche Lorraine ,Starter,French,"Milk, Cereals containing gluten",No,Bacon
+Coquilles Saint-Jacques ,Starter,French,"Molluscs, Milk",No,Fish
+Oysters ,Starter,French,"Molluscs, Sulphites",No,Fish
+Pissaladière ,Starter,French,"Fish, Cereals containing gluten",No,Fish
+Tarte Flambée ,Starter,French,"Milk, Cereals containing gluten",No,Pork
+Soupe au Pistou ,Starter,French,"Cereals containing gluten, Milk",Yes,
+Salade Lyonnaise ,Starter,French,"Egg, Milk",No,Pork
+Moules Marinières ,Starter,French,"Molluscs, Milk",No,Fish
+Rillettes ,Starter,French,"Milk, Sulphites",No,Pork
+Terrine de Poisson ,Starter,French,"Fish, Milk",No,Fish
+Ratatouille ,Starter,French,"Milk, Sulphites",Yes,
+Croque Monsieur ,Starter,French,"Milk, Cereals containing gluten",No,Pork
+Vichyssoise ,Starter,French,"Milk, Celery",Yes,
+Huitres (Oysters) ,Starter,French,"Molluscs, Sulphites",No,Fish
+Escargot de Bourgogne ,Starter,French,"Molluscs, Milk",No,Snail
+Crème Brûlée,Dessert,French,"Milk, Eggs",,
+Tarte Tatin ,Dessert,French,"Cereals containing gluten, Milk",,
+Macarons ,Dessert,French,"Eggs, Nuts",,
+Profiteroles ,Dessert,French,"Cereals containing gluten, Milk",,
+Mille-Feuille ,Dessert,French,"Cereals containing gluten, Milk",,
+Chocolate Mousse ,Dessert,French,"Milk, Eggs",,
+Clafoutis ,Dessert,French,"Milk, Eggs",,
+Île Flottante ,Dessert,French,"Milk, Eggs",,
+Financiers ,Dessert,French,"Nuts, Eggs",,
+Tarte au Citron (Lemon Tart) ,Dessert,French,"Cereals containing gluten, Eggs",,
+Madeleines ,Dessert,French,"Cereals containing gluten, Eggs",,
+Pots de Crème ,Dessert,French,"Milk, Eggs",,
+Bûche de Noël ,Dessert,French,"Cereals containing gluten, Milk",,
+Tarte Normande ,Dessert,French,"Cereals containing gluten, Milk",,
+Crêpes Suzette ,Dessert,French,"Cereals containing gluten, Milk",,
+Baba au Rhum ,Dessert,French,Cereals containing gluten,,
+Gateau Basque ,Dessert,French,"Cereals containing gluten, Milk",,
+Floating Island ,Dessert,French,"Milk, Eggs",,
+Galette des Rois ,Dessert,French,"Cereals containing gluten, Nuts",,
+Poire Belle Helene ,Dessert,French,"Milk, Nuts",,
+Tave Kosi (Baked Lamb and Yogurt) ,Mains,Albanian,"Milk, Eggs",No,Lamb
+Fërgesë (Pepper and Cheese Bake),Mains,Albanian,"Milk, Eggs",Yes,
+Pule me Arra (Chicken with Walnuts) ,Mains,Albanian,"Milk, Nuts",No,Chicken
+Tavë Prizreni (Prizren-style Lamb),Mains,Albanian,"Milk, Eggs",No,Lamb
+Speca me Gjize (Peppers Stuffed with Cheese) ,Mains,Albanian,"Milk, Eggs",Yes,
+Bakllasarma (Stuffed Eggplant) ,Mains,Albanian,"Milk, Eggs",Yes,
+Byrek (Savory Pie) ,Mains,Albanian,"Cereals containing gluten, Milk",Yes,
+Fërgesë Tirane (Tirana-style Pepper and Tomato Bake),Mains,Albanian,"Milk, Eggs",Yes,
+Tavë Elbasani (Elbasan-style Lamb),Mains,Albanian,"Milk, Eggs",No,Lamb
+Qofte të Fërguara (Fried Meatballs),Mains,Albanian,"Cereals containing gluten, Eggs",No,Beef
+Lakror (Layered Pie) ,Mains,Albanian,"Cereals containing gluten, Milk",Yes,
+Sopë me Hithra (Barley Soup),Starter,Albanian,"Cereals containing gluten, Celery",Yes,
+Lakror (Layered Pie),Starter,Albanian,"Cereals containing gluten, Milk",Yes,
+Japrak (Stuffed Grape Leaves),Starter,Albanian,"Cereals containing gluten, Milk",Yes,
+Bakllasarma (Stuffed Eggplant) ,Starter,Albanian,"Milk, Eggs",Yes,
+Qofte të Fërguara (Fried Meatballs) ,Starter,Albanian,"Cereals containing gluten, Eggs",No,Beef
+Flija (Layered Pancake Dish) ,Starter,Albanian,"Cereals containing gluten, Milk",Yes,
+Shëndetli (Cheese Pie),Starter,Albanian,"Milk, Eggs",Yes,
+Bënjës (Leek Pie) ,Starter,Albanian,"Cereals containing gluten, Milk",Yes,
+Sopë me Mish (Meat Soup) ,Starter,Albanian,"Cereals containing gluten, Celery",No,Beef
+Byrek (Savory Pie) ,Starter,Albanian,"Cereals containing gluten, Milk",Yes,
+Trilece ,Dessert,Albanian,"Milk, Eggs",,
+Sheqerpare (Albanian Shortbread Cookies) ,Dessert,Albanian,"Milk, Cereals containing gluten",,
+Revani ,Dessert,Albanian,"Milk, Cereals containing gluten",,
+Kadaif ,Dessert,Albanian,"Nuts, Cereals containing gluten",,
+Ballokume (Albanian Christmas Cookies) ,Dessert,Albanian,"Milk, Cereals containing gluten",,
+Petulla (Fried Dough) ,Dessert,Albanian,"Milk, Cereals containing gluten",,
+Tulumba ,Dessert,Albanian,"Cereals containing gluten, Eggs",,
+Shendetli (Albanian Cheesecake) ,Dessert,Albanian,"Milk, Eggs",,
+Qumeshtor (Milk Pie) ,Dessert,Albanian,"Milk, Cereals containing gluten",,
+Kokoshka ,Dessert,Albanian,"Nuts, Cereals containing gluten",,
+Rovani (Semolina Pudding) ,Dessert,Albanian,"Milk, Cereals containing gluten",,
+Shendetli (Albanian Cheesecake) ,Dessert,Albanian,"Milk, Eggs",,
+Sultjash (Rice Pudding) ,Dessert,Albanian,"Milk, Cereals containing gluten",,
+Bakllavë,Dessert,Albanian,"Nuts, Cereals containing gluten",,
