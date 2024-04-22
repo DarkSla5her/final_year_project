@@ -42,7 +42,7 @@
                 <div class="navbar-nav">
                     <a class="nav-link" href="{% url 'homepage' %}">Home</a>
                     <a class="nav-link" href="{% url 'account' %}">My Account</a>
-                    <a class="nav-link" href="#">Log Out</a>
+                    <a class="nav-link" href="{% url 'login' %}">Log Out</a>
                 </div>
             </div>
         </div>
@@ -138,7 +138,7 @@
             </div>
 
             <div id="vegetarian_option" class="mb-3">
-                <label for="vegetarian" class="form-label">Do you want a vegetarian option?</label><br>
+                <label for="vegetarian" class="form-label" >Do you want a vegetarian option?</label><br>
                 <div class="form-check form-check-inline">
                     <input type="radio" name="vegetarian" value="Yes" id="vegetarian_yes" class="form-check-input">
                     <label class="form-check-label">Yes</label>
