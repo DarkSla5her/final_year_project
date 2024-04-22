@@ -26,7 +26,9 @@ def signup(request):
             return redirect('login')
         else:
             print("Form is not valid")
-            print(form.errors.as_data())  # More detailed form errors
+            # Pass form errors to template context
+            context = {'form': form}
+            return render(request, 'food_recommendation/signup.html', context)
     else:
         form = SignUpForm()
     return render(request, 'food_recommendation/signup.html', {'form': form})
@@ -43,10 +45,8 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 return redirect('homepage')  # Redirect to the homepage
-            else:
-                messages.error(request, "Invalid username or password.")
-        else:
-            messages.error(request, "Invalid username or password.")
+        # Display error message for invalid username or password
+        messages.error(request, "Invalid username or password.")
     else:
         form = AuthenticationForm()
     return render(request, 'food_recommendation/login.html', {'form': form})
@@ -160,7 +160,7 @@ def food_recommendation_helper(food_database,food_names, food_data, allergies, s
     selected_food_data = food_database
     print("Testing...")
     print (selected_food_data)
-    
+
     # Check if there is data left after filtering
     if selected_food_data.empty:
         return []

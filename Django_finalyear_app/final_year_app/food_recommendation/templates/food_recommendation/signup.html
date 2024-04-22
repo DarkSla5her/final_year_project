@@ -79,13 +79,22 @@
       </div>
       {% endif %}
     
-    <form method="POST" action="">
-      {% csrf_token %}
+      <form method="POST" action="">
+        {% csrf_token %}
         <div class="box">
-         <div class="container">
-           <div class="top-header">
-             <h1>Sign Up</h1>
-           </div>
+            <div class="container">
+                <div class="top-header">
+                    <h1>Sign Up</h1>
+                </div>
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        {% for field, errors in form.errors.items %}
+                            {% for error in errors %}
+                                <p>{{ error|escape }}</p>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
            <div class="mb-3">
             <div class="input-field">
               <input name="username" id="username" type="text" class="form-control" placeholder="Enter your username" required><br>
