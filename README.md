@@ -16,6 +16,4 @@ python -m pip install --upgrade pip
 Install the latest version of Django
 (final_year_project)$ pip install django
 cd Django_finalyear_app/final_year_app
-pip install pandas
-pip install scipy
-pip install scikit-learn
+pip install -r requirements.txt
