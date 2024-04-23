@@ -47,9 +47,6 @@
             </div>
         </div>
     </nav>
-    <!-- <img class="food3" src="/static/food_recommendation/food3.png">
-     <img class="food4" src="/static/food_recommendation/food4.png"> -->
-    
     <div class="container mt-5">
         <h1>Lets recommend you something to eat...</h1>
 
@@ -57,7 +54,7 @@
             {% csrf_token %}
             <div class="mb-3">
                 <label for="course" class="form-label">Select Course:</label>
-                <select name="course" id="course" class="form-select">
+                <select name="course" id="course" class="form-select" required>
                     <option disabled selected>Select course type</option>
                     <option value="Mains">Mains</option>
                     <option value="Starter">Starter</option>
@@ -67,7 +64,7 @@
 
             <div class="mb-3">
                 <label for="cuisine" class="form-label">Select Cuisine:</label>
-                <select name="cuisine" id="cuisine" class="form-select">
+                <select name="cuisine" id="cuisine" class="form-select" required>
                     <option disabled selected>Select a cuisine</option>
                     <option value="Italian">Italian</option>
                     <option value="Chinese">Chinese</option>
@@ -151,7 +148,7 @@
 
             <div id="meat_dropdown" class="mb-3" style="display: none;">
                 <label for="meat" class="form-label">Choose the type of meat:</label>
-                <select name="meat" id="meat" class="form-select">
+                <select name="meat" id="meat" class="form-select" required>
                     <option disabled selected>Select the meat type</option>
                     <option value="Chicken">Chicken</option>
                     <option value="Beef">Beef</option>
