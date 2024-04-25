@@ -172,9 +172,9 @@
           var vegetarianOption = document.getElementById("vegetarian_option");
           var meatDropdown = document.getElementById("meat_dropdown");
   
-          // Show or hide the vegetarian and meat dropdowns based on the selected course
+          // Show or hide the vegetarian and meat dropdowns based on the selected course. 
           function toggleDropdowns() {
-              if (courseDropdown.value === "Dessert") {
+              if (courseDropdown.value === "Dessert") { //if dessert, vegetarian and meat are hidden
                   vegetarianOption.style.display = "none";
                   meatDropdown.style.display = "none";
               } else {
@@ -185,7 +185,7 @@
   
           // Show or hide the meat dropdown based on the value of the vegetarian radio button
           function toggleMeatDropdown() {
-              var vegetarianYes = document.getElementById("vegetarian_yes");
+              var vegetarianYes = document.getElementById("vegetarian_yes");//if vegetarian is yes, meat is hidden
               if (!vegetarianYes.checked && courseDropdown.value !== "Dessert") {
                   meatDropdown.style.display = "block";
               } else {
