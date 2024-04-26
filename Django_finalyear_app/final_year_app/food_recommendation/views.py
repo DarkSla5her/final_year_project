@@ -12,6 +12,7 @@ from .forms import SignUpForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 import random
+from django.http import HttpResponseBadRequest
 
 def signup(request):
     print("Signup view accessed")  # Confirm the view is being hit
@@ -96,14 +97,28 @@ def recommend_drink(request):#the drinks function to recommend a drink, takes re
         return render(request, 'food_recommendation/recommend_drink.html', {'recommended_drink': recommended_drink})# whatever is in recommend_drink is shown to user
 
     return render(request, 'food_recommendation/recommend_drink.html')#if method is not POST default render is returned
+def recommend_food(request):
+    if request.method == 'POST':
+        course = request.POST.get('course')
+        if course is not None:
+            course = course.strip()
 
-def recommend_food(request):#function that takes request as an argument
-    if request.method == 'POST':#form in the frontend has been submitted
-        course = request.POST.get('course').strip()
-        cuisine = request.POST.get('cuisine').strip()#gets the values from the form fields and removes
-        allergies_str = request.POST.get('allergies').strip()#any leading or trailing white spaces
+        cuisine = request.POST.get('cuisine')
+        if cuisine is not None:
+            cuisine = cuisine.strip()
+
+        allergies_str = request.POST.get('allergies')
+        if allergies_str is not None:
+            allergies_str = allergies_str.strip()
+        else:
+            allergies_str = ''
+
         vegetarian = request.POST.get('vegetarian', None)
         meat = request.POST.get('meat', None)
+
+        if not course or not cuisine or (allergies_str == '' and 'No allergies' not in request.POST.getlist('allergies')):
+            error_message = "All required fields must be filled in."
+            return render(request, 'food_recommendation/recommend_food.html', {'error_message': error_message})
 
         # Convert allergies string to a list splitting it by commas and removing any empty strings
         allergies = [allergy.strip() for allergy in allergies_str.split(',') if allergy.strip()]
@@ -111,7 +126,7 @@ def recommend_food(request):#function that takes request as an argument
         # Constructs the absolute path to the CSV files
         food_csv_path = os.path.join(settings.BASE_DIR, 'food_recommendation', 'food_dataset.csv')
 
-        # Reads the dataset into a pandas data frame 
+        # Reads the dataset into a pandas data frame
         food_data = pd.read_csv(food_csv_path)
 
         # Strip whitespaces from specific columns in the food_data data frame
@@ -123,16 +138,16 @@ def recommend_food(request):#function that takes request as an argument
 
         # Filters the food_data data frame based on user course and cuisine
         ans = food_data[
-                    (food_data['Type_of_course'] == course) &
-                    (food_data['Cuisine'] == cuisine)
-                ]
-        
+            (food_data['Type_of_course'] == course) &
+            (food_data['Cuisine'] == cuisine)
+        ]
+
         # Filter by vegetarian if specified
         if vegetarian:
             ans = ans[ans['Is_vegetarian'] == vegetarian]
 
         # Filter by meat if specified
-        if meat:#checks if the meat is specified in the meat column which can contain multiple meat types seperated by commas
+        if meat:
             ans = ans[ans['Meat'].apply(lambda x: meat.lower() in str(x).lower().split(','))]
 
         # Filter out any foods that contain the users specified allergies
@@ -140,18 +155,18 @@ def recommend_food(request):#function that takes request as an argument
             ans = ans[~ans['Allergies'].str.contains(allergy, case=False, na=False)]
 
         if ans.empty:
-            print("No data found after filtering.")#checks if there are no recommendations left after filtering
+            print("No data found after filtering.")
             recommendations = "No recommendations found."
-        else:#if there are recommendations calls this function to get a recommendation and randomly selects one
-            recommendations = food_recommendation_helper(ans,ans['Food'].tolist(), food_data, allergies, cuisine, vegetarian, meat)
+        else:
+            recommendations = food_recommendation_helper(ans, ans['Food'].tolist(), food_data, allergies, cuisine, vegetarian, meat)
             if recommendations:
-                recommendations = random.choice(recommendations)#random used to generate a random recommendation
+                recommendations = random.choice(recommendations)
             else:
                 recommendations = "No recommendations found."
-        #renders the template and passes the recommendations and selected course values to be displayed 
+
         return render(request, 'food_recommendation/recommend_food.html', {'recommendations': recommendations, 'selected_course': course})
     else:
-        return render(request, 'food_recommendation/recommend_food.html')#if method not POST
+        return render(request, 'food_recommendation/recommend_food.html')
 
 
 def food_recommendation_helper(food_database,food_names, food_data, allergies, selected_cuisine, vegetarian, meat):#takes several arguments
