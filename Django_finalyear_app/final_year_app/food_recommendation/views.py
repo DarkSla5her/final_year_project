@@ -56,18 +56,25 @@ def login_view(request):
         form = AuthenticationForm()
     return render(request, 'food_recommendation/login.html', {'form': form})
 
-
+# @login_required
+# def logout_view(request):
+#     if request.method == "POST":
+#         logout(request)
+#         return redirect("home")
+    
 def logout_view(request):
-    if request.method == "POST":
-        logout(request)
-        return redirect("home")
+    logout(request)
+    return redirect(reverse_lazy('login'))
+
 
 def account(request):
      return render(request, 'food_recommendation/account.html')
- 
+
+
 def homepage(request):
      return render(request, 'food_recommendation/homepage.html')
  
+
 def recommend_drink(request):#the drinks function to recommend a drink, takes request as an argument
     if request.method == 'POST':#checks if the request is post which means that it is submitted
         alcoholic_or_non_alcoholic = request.POST.get('alcoholic_or_non_alcoholic')
@@ -95,7 +102,8 @@ def recommend_drink(request):#the drinks function to recommend a drink, takes re
 
         if drink_names:
             recommended_drink = random.choice(drink_names)#checks if there are drinks in the drink_names list, if there are it is assigned to recommend_drink
-            RecommendedDrink.objects.create(drink_name=recommended_drink)
+            # RecommendedDrink.objects.create(drink_name=recommended_drink)
+            RecommendedDrink.objects.create(drink_name=recommended_drink, user=request.user)
         else:#which uses a random in-built function to generate a recommendation
             recommended_drink = "No drinks available for the selected type."#if nothing is available this is returned
 
@@ -105,7 +113,8 @@ def recommend_drink(request):#the drinks function to recommend a drink, takes re
 
 
 def view_recommendations(request):
-    past_recommendations = RecommendedDrink.objects.all().order_by('-recommended_on')
+    # past_recommendations = RecommendedDrink.objects.all().order_by('-recommended_on')
+    past_recommendations = RecommendedDrink.objects.filter(user=request.user).order_by('-recommended_on')
     print(past_recommendations) 
     return render(request, 'food_recommendation/view_recommendations.html', {'past_recommendations': past_recommendations})
 
@@ -179,16 +188,18 @@ def recommend_food(request):
         
         if recommendations:
         # Save the recommended food to the database
-            RecommendedFood.objects.create(food_name=recommendations)
+            # RecommendedFood.objects.create(food_name=recommendations)
+            RecommendedFood.objects.create(food_name=recommendations, user=request.user)
 
         return render(request, 'food_recommendation/recommend_food.html', {'recommendations': recommendations, 'selected_course': course})
     else:
         return render(request, 'food_recommendation/recommend_food.html')
 
-def view_past_food(request):
-    past_recommendations = RecommendedFood.objects.all().order_by('-recommended_on')
-    return render(request, 'food_recommendation/view_past_food.html', {'past_recommendations': past_recommendations})
 
+def view_past_food(request):
+    # past_recommendations = RecommendedFood.objects.all().order_by('-recommended_on')
+    past_recommendations = RecommendedFood.objects.filter(user=request.user).order_by('-recommended_on')
+    return render(request, 'food_recommendation/view_past_food.html', {'past_recommendations': past_recommendations})
 
 def food_recommendation_helper(food_database,food_names, food_data, allergies, selected_cuisine, vegetarian, meat):#takes several arguments
     
