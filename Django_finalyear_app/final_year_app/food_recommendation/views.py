@@ -13,6 +13,10 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 import random
 from django.http import HttpResponseBadRequest
+from .models import RecommendedDrink
+from .models import RecommendedFood
+
+
 
 def signup(request):
     print("Signup view accessed")  # Confirm the view is being hit
@@ -91,12 +95,21 @@ def recommend_drink(request):#the drinks function to recommend a drink, takes re
 
         if drink_names:
             recommended_drink = random.choice(drink_names)#checks if there are drinks in the drink_names list, if there are it is assigned to recommend_drink
+            RecommendedDrink.objects.create(drink_name=recommended_drink)
         else:#which uses a random in-built function to generate a recommendation
             recommended_drink = "No drinks available for the selected type."#if nothing is available this is returned
 
         return render(request, 'food_recommendation/recommend_drink.html', {'recommended_drink': recommended_drink})# whatever is in recommend_drink is shown to user
 
     return render(request, 'food_recommendation/recommend_drink.html')#if method is not POST default render is returned
+
+
+def view_recommendations(request):
+    past_recommendations = RecommendedDrink.objects.all().order_by('-recommended_on')
+    print(past_recommendations) 
+    return render(request, 'food_recommendation/view_recommendations.html', {'past_recommendations': past_recommendations})
+
+
 def recommend_food(request):
     if request.method == 'POST':
         course = request.POST.get('course')
@@ -163,10 +176,18 @@ def recommend_food(request):
                 recommendations = random.choice(recommendations)
             else:
                 recommendations = "No recommendations found."
+        
+        if recommendations:
+        # Save the recommended food to the database
+            RecommendedFood.objects.create(food_name=recommendations)
 
         return render(request, 'food_recommendation/recommend_food.html', {'recommendations': recommendations, 'selected_course': course})
     else:
         return render(request, 'food_recommendation/recommend_food.html')
+
+def view_past_food(request):
+    past_recommendations = RecommendedFood.objects.all().order_by('-recommended_on')
+    return render(request, 'food_recommendation/view_past_food.html', {'past_recommendations': past_recommendations})
 
 
 def food_recommendation_helper(food_database,food_names, food_data, allergies, selected_cuisine, vegetarian, meat):#takes several arguments
