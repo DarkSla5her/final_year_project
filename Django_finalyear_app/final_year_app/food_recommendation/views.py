@@ -15,6 +15,9 @@ import random
 from django.http import HttpResponseBadRequest
 from .models import RecommendedDrink
 from .models import RecommendedFood
+from django.contrib.auth.decorators import login_required
+
+from django.contrib.auth.views import redirect_to_login
 
 
 
@@ -38,8 +41,6 @@ def signup(request):
         form = SignUpForm()
     return render(request, 'food_recommendation/signup.html', {'form': form})
 
-
-@csrf_exempt
 def login_view(request):
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -48,33 +49,40 @@ def login_view(request):
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                login(request, user)
-                return redirect('homepage')  # Redirect to the homepage
-        # Display error message for invalid username or password
-        messages.error(request, "Invalid username or password.")
+                login(request, user)  # Start a new session for the user
+                # Check if the user was redirected from a restricted page
+                next_url = request.GET.get('next')
+                if next_url:
+                    return redirect(next_url)
+                else:
+                    return redirect('homepage')  # Replace 'homepage' with the desired URL pattern name
+            else:
+                messages.error(request, "Invalid username or password.")
+        else:
+            messages.error(request, "Invalid form data.")
     else:
+        # Check if the user was redirected from a restricted page
+        next_url = request.GET.get('next')
+        if next_url:
+            messages.error(request, "You must be logged in to access this page.")
         form = AuthenticationForm()
     return render(request, 'food_recommendation/login.html', {'form': form})
 
-# @login_required
-# def logout_view(request):
-#     if request.method == "POST":
-#         logout(request)
-#         return redirect("home")
-    
 def logout_view(request):
-    logout(request)
-    return redirect(reverse_lazy('login'))
+    if request.method == "POST":
+        logout(request)  # End the user's session
+        messages.success(request, "You have been logged out successfully.")
+    return redirect("login")
 
-
+@login_required(login_url='login')
 def account(request):
      return render(request, 'food_recommendation/account.html')
 
-
+@login_required(login_url='login')
 def homepage(request):
      return render(request, 'food_recommendation/homepage.html')
  
-
+@login_required(login_url='login')
 def recommend_drink(request):#the drinks function to recommend a drink, takes request as an argument
     if request.method == 'POST':#checks if the request is post which means that it is submitted
         alcoholic_or_non_alcoholic = request.POST.get('alcoholic_or_non_alcoholic')
@@ -111,14 +119,14 @@ def recommend_drink(request):#the drinks function to recommend a drink, takes re
 
     return render(request, 'food_recommendation/recommend_drink.html')#if method is not POST default render is returned
 
-
+@login_required(login_url='login')
 def view_recommendations(request):
     # past_recommendations = RecommendedDrink.objects.all().order_by('-recommended_on')
     past_recommendations = RecommendedDrink.objects.filter(user=request.user).order_by('-recommended_on')
     print(past_recommendations) 
     return render(request, 'food_recommendation/view_recommendations.html', {'past_recommendations': past_recommendations})
 
-
+@login_required(login_url='login')
 def recommend_food(request):
     if request.method == 'POST':
         course = request.POST.get('course')
@@ -195,7 +203,7 @@ def recommend_food(request):
     else:
         return render(request, 'food_recommendation/recommend_food.html')
 
-
+@login_required(login_url='login')
 def view_past_food(request):
     # past_recommendations = RecommendedFood.objects.all().order_by('-recommended_on')
     past_recommendations = RecommendedFood.objects.filter(user=request.user).order_by('-recommended_on')

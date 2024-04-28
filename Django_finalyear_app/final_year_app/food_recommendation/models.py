@@ -15,14 +15,8 @@ class RecommendedDrink(models.Model):
     recommended_on = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='recommended_drinks', default=get_default_user)
 
-    def __str__(self):
-        return self.drink_name
     
 class RecommendedFood(models.Model):
     food_name = models.CharField(max_length=100)
     recommended_on = models.DateTimeField(auto_now_add=True)
-    # user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='recommended_foods')
     user = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name='recommended_foods', default=get_default_user)
-
-    # def __str__(self):
-    #     return self.food_name

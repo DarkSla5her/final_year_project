@@ -1,5 +1,6 @@
 from django.urls import path, include
 from . import views
+from .views import login_view, logout_view
 
 urlpatterns = [
     path('login/', views.login_view, name='login'),
@@ -10,4 +11,7 @@ urlpatterns = [
     path('account/', views.account, name='account'),
     path('view_recommendations/', views.view_recommendations, name='view_recommendations'),
     path('view_past_food/', views.view_past_food, name='view_past_food'),
+
+
+    path('logout/', logout_view, name='logout'),
     ]
