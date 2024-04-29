@@ -19,3 +19,4 @@ conda activate final_year_project
 (final_year_project)$ pip install django
 7. cd Django_finalyear_app/final_year_app
 8. pip install -r requirements.txt
+9. [localhost:8000/](http://127.0.0.1:8000/food_recommendation/login/)
