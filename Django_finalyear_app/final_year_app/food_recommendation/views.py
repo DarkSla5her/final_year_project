@@ -19,18 +19,20 @@ from django.contrib.auth.decorators import login_required
 
 from django.contrib.auth.views import redirect_to_login
 
-
+# the above are the required imports to run the application
 
 def signup(request):
-    print("Signup view accessed")  # Confirm the view is being hit
+    print("Signup view accessed")  # Confirm the view is being accessed
     if request.method == 'POST':
         print("Processing POST request")  # Confirm form submission
         form = SignUpForm(request.POST)
+        # if the form details are good the user can sign up
         if form.is_valid():
             print("Form is valid")
             user = form.save()
             login(request, user)
             messages.success(request, 'Account created successfully')
+            # once signed up redirect to login page
             return redirect('login')
         else:
             print("Form is not valid")
@@ -42,32 +44,35 @@ def signup(request):
     return render(request, 'food_recommendation/signup.html', {'form': form})
 
 def login_view(request):
+    # form has been submitted
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
+        # if form details are valid user is authenticated 
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                login(request, user)  # Start a new session for the user
-                # Check if the user was redirected from a restricted page
+                login(request, user)  # if login is successful a new session starts for the user
+                # Check if the user was redirected from a restricted page, if not they are redirected to the homepage
                 next_url = request.GET.get('next')
                 if next_url:
                     return redirect(next_url)
                 else:
-                    return redirect('homepage')  # Replace 'homepage' with the desired URL pattern name
+                    return redirect('homepage') 
             else:
-                messages.error(request, "Invalid username or password.")
+                messages.error(request, "Invalid username or password.")#if authentication fails
         else:
-            messages.error(request, "Invalid form data.")
+            messages.error(request, "Invalid form data.")#if submitted data is not valid 
     else:
-        # Check if the user was redirected from a restricted page
+        # Check if the user was redirected from a restricted page but did not submit a login form
         next_url = request.GET.get('next')
         if next_url:
             messages.error(request, "You must be logged in to access this page.")
-        form = AuthenticationForm()
-    return render(request, 'food_recommendation/login.html', {'form': form})
+        form = AuthenticationForm()#prepares any empty form to be displayed 
+    return render(request, 'food_recommendation/login.html', {'form': form})#sent as HTTP response 
 
+# if the user selects the logout button, the session ends and the user is logged out. the user cannot access the pages without logging in again
 def logout_view(request):
     if request.method == "POST":
         logout(request)  # End the user's session
@@ -119,35 +124,37 @@ def recommend_drink(request):#the drinks function to recommend a drink, takes re
 
     return render(request, 'food_recommendation/recommend_drink.html')#if method is not POST default render is returned
 
+# a decorator that only allows authenticated users to access this view
 @login_required(login_url='login')
 def view_recommendations(request):
-    # past_recommendations = RecommendedDrink.objects.all().order_by('-recommended_on')
+    # shows the past drink recommendations for the current user that is logged in. based on user
     past_recommendations = RecommendedDrink.objects.filter(user=request.user).order_by('-recommended_on')
     print(past_recommendations) 
     return render(request, 'food_recommendation/view_recommendations.html', {'past_recommendations': past_recommendations})
 
+# used to identify the function as login required to run or be accessed
 @login_required(login_url='login')
-def recommend_food(request):
-    if request.method == 'POST':
+def recommend_food(request):#request as its argument 
+    if request.method == 'POST':#checks if form has been submitted
         course = request.POST.get('course')
-        if course is not None:
+        if course is not None:#checks if value is not none and strips whitespaces
             course = course.strip()
 
         cuisine = request.POST.get('cuisine')
-        if cuisine is not None:
+        if cuisine is not None:#checks if value is not none and strips whitespaces
             cuisine = cuisine.strip()
 
         allergies_str = request.POST.get('allergies')
-        if allergies_str is not None:
+        if allergies_str is not None:#checks if value is not none and strips whitespaces
             allergies_str = allergies_str.strip()
         else:
             allergies_str = ''
 
         vegetarian = request.POST.get('vegetarian', None)
         meat = request.POST.get('meat', None)
-
+        # if any of the required fields are left empty the form will not submit and an error message will be displayed
         if not course or not cuisine or (allergies_str == '' and 'No allergies' not in request.POST.getlist('allergies')):
-            error_message = "All required fields must be filled in."
+            error_message = "All required fields must be filled in."#error message shown
             return render(request, 'food_recommendation/recommend_food.html', {'error_message': error_message})
 
         # Convert allergies string to a list splitting it by commas and removing any empty strings
@@ -185,29 +192,30 @@ def recommend_food(request):
             ans = ans[~ans['Allergies'].str.contains(allergy, case=False, na=False)]
 
         if ans.empty:
-            print("No data found after filtering.")
+            print("No data found after filtering.")#if empty print this as there is no data
             recommendations = "No recommendations found."
         else:
+            #generates food based recommendations based on filtered data
             recommendations = food_recommendation_helper(ans, ans['Food'].tolist(), food_data, allergies, cuisine, vegetarian, meat)
             if recommendations:
-                recommendations = random.choice(recommendations)
+                recommendations = random.choice(recommendations)#random choice everytime it is run
             else:
                 recommendations = "No recommendations found."
         
         if recommendations:
-        # Save the recommended food to the database
-            # RecommendedFood.objects.create(food_name=recommendations)
-            RecommendedFood.objects.create(food_name=recommendations, user=request.user)
-
+            # Save the recommended food to the database. this is to be used for past recommendations. 
+            RecommendedFood.objects.create(food_name=recommendations, user=request.user)#recommendations specific to the user
         return render(request, 'food_recommendation/recommend_food.html', {'recommendations': recommendations, 'selected_course': course})
     else:
         return render(request, 'food_recommendation/recommend_food.html')
 
+# a decorator that only allows authenticated users to access pages
 @login_required(login_url='login')
 def view_past_food(request):
-    # past_recommendations = RecommendedFood.objects.all().order_by('-recommended_on')
+    # shows the past food recommendations for the current user that is logged in. based on user
     past_recommendations = RecommendedFood.objects.filter(user=request.user).order_by('-recommended_on')
     return render(request, 'food_recommendation/view_past_food.html', {'past_recommendations': past_recommendations})
+
 
 def food_recommendation_helper(food_database,food_names, food_data, allergies, selected_cuisine, vegetarian, meat):#takes several arguments
     
